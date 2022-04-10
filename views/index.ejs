@@ -1,0 +1,26 @@
+<%- include("./includes/head") %>
+<body>
+    <%- include("./includes/nav") %>
+    <div class="d-flex justify-content-center align-items-center w-50">
+        <form action="/post-mail" method="post">
+            <div>
+                <label for="name">Enter your Name: </label>
+                <input class="form-control" type="email" name="name" class="form-control" />
+            </div>
+            <div>
+                <label for="name">Enter your Email: </label>
+                <input  class="form-control" type="email" name="email" class="form-control" />
+            </div>
+            <div>
+                <label for="name">Enter your recipinet Email: </label>
+                <input class="form-control" type="email" name="email" class="form-control" />
+            </div>
+            <div>
+                <p>what do you have to say:<p><br />
+                <textarea  class="form-control" name="description" id="" cols="30" rows="10"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Send</button>
+        </form>
+    </div>
+<%- include("./includes/end") %>
