@@ -12,12 +12,15 @@ const messageSchema = new Schema({
     },
     messages: {
         type: String,
-        required: true,
-        usersDetails: {
-            type: Schema.Types.ObjectId,
-            ref: "User",
-            required: true
-        }
+        required: true
+    },
+    usersDetails: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+        required: true
     }
+
+       
+
 })
 module.exports = mongoose.model("Messages", messageSchema);

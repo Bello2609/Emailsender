@@ -1,4 +1,9 @@
 const Messages = require("../model/messages");
+const nodemailer = require("nodemailer");
+const sendGrid = require("nodemailer-sendgrid-transport");
+
+
+
 exports.getIndex = (req, res, next)=>{
     res.render("index", {
         pageTitle: "Home",
@@ -8,11 +13,16 @@ exports.getIndex = (req, res, next)=>{
 exports.postMessage = (req, res, next)=>{
     const { fullname, email, reci_email, description } = req.body;
 
-    const messages = new Messages({
-        fullname: fullname,
+    const message = new Messages({
+        sendername: fullname,
         email: email,
         recipientmail: reci_email,
-        message: description
+        messages: description,
+        usersDetails: req.user
     });
-    return messages.save();
+    message.save().then(message=>{
+        res.redirect("/");
+    }).catch(err=>{
+        console.log(err);
+    });
 }

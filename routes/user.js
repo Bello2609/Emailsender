@@ -8,4 +8,6 @@ const routeProtect = require("../routeProtect/is_Auth");
 
 router.get("/", routeProtect, userController.getIndex);
 
+router.post("/postMessage", userController.postMessage );
+
 module.exports = router;

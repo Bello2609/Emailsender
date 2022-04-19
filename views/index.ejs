@@ -5,7 +5,7 @@
         <form action="/postMessage" method="post">
             <div>
                 <label for="name">Enter your Name: </label>
-                <input class="form-control" type="email" name="fullname" class="form-control" />
+                <input class="form-control" type="text" name="fullname" class="form-control" />
             </div>
             <div>
                 <label for="name">Enter your Email: </label>
@@ -19,7 +19,8 @@
                 <p>what do you have to say:<p><br />
                 <textarea  class="form-control" name="description" id="" cols="30" rows="10"></textarea>
             </div>
-
+            <input type="hidden" name="_csrf" value="<%= csurf %>">
+            <!-- <input type="hidden" name="_csrf" value="<%= csurf %>"> -->
             <button type="submit" class="btn btn-primary">Send</button>
         </form>
     </div>
